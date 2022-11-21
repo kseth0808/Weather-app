@@ -30,6 +30,6 @@ https.get(url,function(response){
 })
 
 
-app.listen(3000, function(req,res){
+app.listen(process.env.PORT||3000, function(req,res){
     console.log("server is running")
 })
