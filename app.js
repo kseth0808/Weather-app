@@ -6,9 +6,10 @@ const { dirname } = require("path");
 const bodyparser = require("body-parser");
 app.use(bodyparser.urlencoded({extended: true}))
 app.use(express.static("public"));
+app.set('view engine', 'ejs');
 
 app.get("/", function(req,res){
-    res.sendFile(__dirname +"/index.html");
+    res.render("weather");
 })
 app.post("/", function(req,res){
 const cityname = req.body.cityname
