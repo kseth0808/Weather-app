@@ -15,17 +15,15 @@ app.post("/", function(req,res){
 const cityname = req.body.cityname
 const url = "https://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&appid=8de2feb41adb56c2f7d891158094f228&units=metric"
 https.get(url,function(response){
-    console.log(response)
     response.on("data",function(data){
         const weatherdata = JSON.parse(data)
         const temp = weatherdata.main.temp
         const weatherdescription = weatherdata.weather[0].description
         const icon = weatherdata.weather[0].icon
         const imageUrl = " http://openweathermap.org/img/wn/"+ icon +"@2x.png"
-        res.write("<p>The weather is currently " + weatherdescription + " </p>")
-        res.write("<h1>The temperature in " + cityname +" is "+ temp + " degree celcius</h1>")
-        res.write("<img src =" + imageUrl + ">")
-        res.send(); 
+        
+        res.render('weather',{city :cityname, temperature:temp,  explain : weatherdescription ,image : imageUrl});
+        res.end(); 
     })
 })
 })
