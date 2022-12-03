@@ -46,14 +46,16 @@
     }
 
     button {
-        padding: 6px 36px;
-        border: 1px solid rgb(0, 0, 0);
+        padding: 10px 50px;
+        border: 2px solid rgb(0, 0, 0);
         border-radius: 10px;
         background: transparent;
         cursor: pointer;
         font-size: inherit;
         letter-spacing: 2px;
         color: rgb(0, 0, 0);
+        font-weight: 600;
+        font-size: 20px;
     }
 
     h1 {
